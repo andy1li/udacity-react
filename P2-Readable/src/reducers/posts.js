@@ -20,6 +20,14 @@ const byId = (state = {}, {type, response}) => {
         ...state,
         ...response.entities.posts
       };
+
+    case DELETE_POST_SUCCESS:
+      return Object.keys(state)
+        .filter(id => id !== response.result)
+        .reduce((newState, key) => {
+          newState[key] = state[key];
+          return newState;
+        }, {});
       
     default:
       return state;

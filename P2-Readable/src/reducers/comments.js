@@ -19,8 +19,30 @@ const byId = (state = {}, {type, response}) => {
         ...response.entities.comments
       };
 
+    case DELETE_COMMENT_SUCCESS:
+      return Object.keys(state)
+        .filter(id => id !== response.result)
+        .reduce((newState, key) => {
+          newState[key] = state[key];
+          return newState;
+        }, {});
+
     default:
       return state;
+  }
+};
+
+const mergeComment = (state, postId, post) => {
+  if (!state[postId]) {
+    return {
+      ...state, 
+      [postId]: [post]
+    };
+  } else {
+    return {
+      ...state,
+      [postId]: [...state[postId], post]
+    };
   }
 };
 
@@ -33,10 +55,7 @@ const idsByPost = (state = {}, {type, postId, response}) => {
       };
 
     case ADD_COMMENT_SUCCESS:
-      return {
-        ...state,
-        [postId]: [...state[postId], response.result]
-      };
+      return mergeComment(state, postId, response.result);
 
     case DELETE_COMMENT_SUCCESS:
       return {
