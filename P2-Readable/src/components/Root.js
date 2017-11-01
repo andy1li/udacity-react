@@ -6,6 +6,7 @@ import Nav from './Nav/Nav'
 import PostList from './Post/PostList'
 import PostDetail from './Post/PostDetail'
 import PostForm from './Post/PostForm'
+import FourOFour from './404'
 
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
@@ -22,6 +23,7 @@ class Root extends Component {
         <Header />
         <Nav />
         <Switch>
+          <Route exact path="/404" component={FourOFour} />
           <Route exact path="/new" component={PostForm} />
           <Route exact path="/:category?" component={PostList} />         
           <Route exact path="/:category/:post" component={PostDetail} />

@@ -30,20 +30,27 @@ export const fetchCategories = () => dispatch =>
 
 export const fetchPosts = category => dispatch => 
   api.fetchPosts(category)
-    .then(posts => dispatch({
-      type: FETCH_POSTS_SUCCESS,
-      category,
-      response: normalize(posts, schema.posts)
-    }))
+    .then(posts => {
+      if (posts.length) {
+        return dispatch({
+          type: FETCH_POSTS_SUCCESS,
+          category,
+          response: normalize(posts, schema.posts)
+        });
+      }
+    })
 
 export const fetchPost = id => dispatch => 
-  id && api.fetchPost(id)
-          .then(post => dispatch({
-            type: FETCH_POST_SUCCESS,
-            category: `/${post.category}`,
-            response: normalize(post, schema.post)
-          }))
-
+  api.fetchPost(id)
+    .then(post => {
+      if (!Object.keys(post).length) {
+        return dispatch({
+          type: FETCH_POST_SUCCESS,
+          category: `/${post.category}`,
+          response: normalize(post, schema.post)
+        });
+      }
+    })
 
 export const deletePost = id => dispatch => 
   api.deletePost(id)
@@ -79,11 +86,15 @@ export const addPost = (post) => dispatch =>
 
 export const fetchComments = postId => dispatch => 
   api.fetchComments(postId)
-    .then(comments => dispatch({
-      type: FETCH_COMMENTS_SUCCESS,
-      postId,
-      response: normalize(comments, schema.comments)
-    }))
+    .then(comments => {
+      if (comments.length) {
+        return dispatch({
+          type: FETCH_COMMENTS_SUCCESS,
+          postId,
+          response: normalize(comments, schema.comments)
+        })
+      }
+    })
 
 export const voteComment = (id, vote) => dispatch => 
   api.voteComment(id, vote)

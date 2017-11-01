@@ -20,6 +20,10 @@
     margin-left: 0;
 }
 
+.error {
+    margin-top: 20px;
+}
+
 /* Posts */
 
 .PostItem {
