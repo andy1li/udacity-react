@@ -1,0 +1,149 @@
+/* General */
+
+.container {
+    padding: 0 15px;
+}
+
+.header {
+    padding: 20px 15px;
+}
+
+.footer {
+    margin: 10px 0 0 3px;
+}
+
+.footer select {
+    margin-right: 8px;
+}
+
+.footer .Button {
+    margin-left: 0;
+}
+
+.error {
+    margin-top: 20px;
+}
+
+/* Posts */
+
+.PostItem {
+    padding: 0 10px 15px 0;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.PostItem .ListItemTitle {
+    display: inline-block;
+    margin-left: 10px;
+    line-height: 40%;
+}
+
+.PostItem span {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.Button {
+    display: inline-block;
+    margin: 3px;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #ccd8e1;
+    border-radius: 3px;
+    padding: 0 10px;
+}
+
+.Button a:hover {
+    text-decoration: none;
+}
+
+.VoteButton {
+    padding: 0 10px;
+    color: #2d84cc;
+    background: #ebf3fb;
+    border-color: #ebf3fb;
+}
+
+.VoteButton:hover {
+    background-color: #e4ebf3;
+    border-color: #e4ebf3;
+}
+
+.VoteButton {
+    padding: 0 10px;
+    color: #2d84cc;
+    background: #ebf3fb;
+    border-color: #ebf3fb;
+}
+
+.Button--primary.Button--blue {
+    background: #0f88eb;
+    color: #fff;
+}
+
+.Button--primary.Button--blue:hover {
+    background-color: #0d79d1;
+}
+
+.Button--blue {
+    margin-left: 6px;
+    color: #0f88eb;
+    border: 1px solid #0f88eb;
+}
+
+.Button--blue:hover {
+    background-color: rgba(13,121,209,.06);
+    text-decoration:  none;
+}
+
+/* PostDetail */
+.single-post-masthead {
+    background-image:url('https://1onjea25cyhx3uvxgs4vu325-wpengine.netdna-ssl.com/wp-content/uploads/2016/03/cropped-chalkboard-image.jpg');
+}
+
+/* Forms */
+
+label.row {
+    display: block;
+    margin: 20px 0 0 0;
+}
+
+label select {
+    margin-left: 10px;
+}
+
+.container form {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+form .Button {
+    margin: 30px 0 0 0;
+}
+
+
+/* Comments */
+
+.CommentList {
+    border-top: 1px solid #e2e2e2;
+    margin-top: 20px;
+}
+
+.CommentItem {
+    padding: 10px 10px 15px 0;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.CommentItem span {
+    margin-left: 10px;
+    display: inline-block;
+}
