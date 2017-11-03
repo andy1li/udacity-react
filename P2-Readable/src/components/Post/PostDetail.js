@@ -8,13 +8,8 @@ import * as actions from '../../actions';
 
 class PostDetail extends Component {
   componentDidMount() {
-    const { fetchPost, fetchComments, id } = this.props;
-    fetchPost(id)
-      .then(() => {
-        if (!Object.keys(this.props.post).length) {
-          this.props.history.push("/404");
-        }}
-      );
+    const { fetchPost, fetchComments, id, history } = this.props;
+    fetchPost(id, history);
     fetchComments(id);
   }
 

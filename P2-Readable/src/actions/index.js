@@ -40,16 +40,18 @@ export const fetchPosts = category => dispatch =>
       }
     })
 
-export const fetchPost = id => dispatch => 
+export const fetchPost = (id, history) => dispatch => 
   api.fetchPost(id)
     .then(post => {
-      if (!Object.keys(post).length) {
+      if (post.error || !Object.keys(post).length) {
+        history.push("/404");
+      } else {
         return dispatch({
           type: FETCH_POST_SUCCESS,
           category: `/${post.category}`,
           response: normalize(post, schema.post)
         });
-      }
+      }  
     })
 
 export const deletePost = id => dispatch => 
