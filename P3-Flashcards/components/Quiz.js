@@ -10,12 +10,14 @@ import {
   setLocalNotification 
 } from '../utils/helpers';
 
+const initialState = {
+  currentQuestionIdx: 1,
+  showingQuestion: true,
+  scores: [],
+};
+
 class Quiz extends React.Component {
-  state = {
-    currentQuestionIdx: 1,
-    showingQuestion: true,
-    scores: [],
-  }
+  state = initialState
 
   flipCard = () =>
     this.setState(() => ({
@@ -23,8 +25,7 @@ class Quiz extends React.Component {
     }))
 
   nextQuestion = score => 
-    this.setState(({currentQuestionIdx, showingQuestion, scores}) => ({
-      showingQuestion: showingQuestion,
+    this.setState(({currentQuestionIdx, scores}) => ({
       scores: [
         ...scores,
         score
@@ -33,9 +34,7 @@ class Quiz extends React.Component {
     }))
 
   restart = () =>
-    this.setState(() => ({
-      currentQuestionIdx: 1,
-    }))
+    this.setState(initialState)
 
   render() {
     const { questions, navigation } = this.props;

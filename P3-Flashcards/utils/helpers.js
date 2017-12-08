@@ -28,7 +28,6 @@ export const shuffle = (a) => {
 export const toPercentage = (a) => {
   sum = a.reduce((a, b) => a + b, 0)
   percentage = sum / a.length * 100
-  console.log(percentage)
   return percentage === 100
     ? '100%'
     : percentage.toPrecision(2) + '%'
